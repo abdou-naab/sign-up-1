@@ -22,7 +22,7 @@
              quia recusandae voluptate velit quia recusandae voluptate velit placeat adipisci optioQuod!</p>
              <p>You know you want to</p>
         </div>
-        <form class="form-m">
+        <form class="form-m" novalidate>
             <fieldset>
                 <legend>Let's do this !</legend>
                 
@@ -38,7 +38,7 @@
                 </div>
                 <div class="email-c">
                     <label for="email">Email</label>
-                    <input required  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                    <input placeholder="exp.example@gmail.vim" required  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                     type="email" name="email" id="email">    
                 </div>
                 <div class="ph-number-c">
@@ -54,10 +54,10 @@
                 <div class="password2-c">
                     <label for="password2">Confirm Password</label>
                     <input required minlength="8" maxlength="20"
-                     type="password" name="password2" id="password2">
+                     type="password" name="password2" id="password2" readonly>
                 </div>
-                <div class="remarques">
-
+                <div class="remarques" aria-live="polite" aria-atomic="true">
+                    
                 </div>
             </fieldset>
             <fieldset>

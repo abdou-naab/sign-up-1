@@ -74,7 +74,17 @@ label{
 .form-m .remarques{
     grid-column: 3 / span 3 ;
     grid-row: 1 / span 3 ;
+    overflow: auto;
+    max-height: 10rem;
 }
+.remarques p{
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    color: red; 
+
+}
+
+
 input{
   padding: 0.4rem;
   width: 80%;
@@ -115,22 +125,24 @@ input{
     border-radius: 4px;
 }
 .form-m fieldset:first-child input:focus{
-    outline: 1px solid blue;
-    box-shadow: 0px 1px 1px 1px rgb(163, 163, 246);
+    outline: none;
+    border: 2px solid blue;
+    box-shadow: 0px 1px 1px 1px rgb(127, 127, 200);
     border-radius: 4px;
 }
-/* .form-m fieldset:first-child input:valid{
-    border: 2px solid #7da15e;
+.form-m fieldset:first-child input:focus:valid{
+    border: 2px solid green;
+    box-shadow: none;
 }
-.form-m fieldset:first-child input:invalid{
+/* .form-m fieldset:first-child input:focus:invalid{
     border: 2px solid red;
-} */
+    box-shadow: none;
+}  */
 .form-m fieldset:first-child div{
-    padding: 0.4rem 0;
+    padding: 0.4rem 0; /*override the remarques padding*/
 }
 .form-m fieldset:last-child{
     padding-left: 2.8rem;
     padding-top: 1.2rem;
     border: none;
 }
-
