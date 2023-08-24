@@ -9,23 +9,63 @@
 </head>
 <body>
     <div class="image-sidebar">
-        <img src="" alt="">
         <div class="logo-container">
-            <img src="" alt="">
+            <img src="imgs/odin-lined.png" alt="the odin project logo">
             <span>Otree</span>
         </div>
     </div>
     <div class="form-container">
         <div class="form-t">
-            <p></p>
+            <p>This is not a real online service, but you know 
+                that you need someting like this in your life
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+             quia recusandae voluptate velit quia recusandae voluptate velit placeat adipisci optioQuod!</p>
+             <p>You know you want to</p>
         </div>
-        <div class="form-m">
-            <form>
+        <form class="form-m">
+            <fieldset>
+                <legend>Let's do this !</legend>
                 
-            </form>
-        </div>
+                <div class="f-name-c">
+                    <label for="f-name">First Name</label>
+                    <input required minlength="3" maxlength="20"
+                    type="text" name="f-name" id="f-name">        
+                </div>
+                <div class="l-name-c">
+                    <label for="l-name">Last Name</label>
+                    <input required minlength="3" maxlength="20"
+                    type="text" name="l-name" id="l-name">
+                </div>
+                <div class="email-c">
+                    <label for="email">Email</label>
+                    <input required  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                    type="email" name="email" id="email">    
+                </div>
+                <div class="ph-number-c">
+                    <label for="ph-number">Phone Number</label>
+                    <input minlength="3" maxlength="20"
+                    type="tel" name="ph-number" id="ph-number" >
+                </div>
+                <div class="password1-c">
+                    <label for="password1">Password</label>
+                    <input required minlength="8" maxlength="20"
+                    type="password" name="password1" id="password1">
+                </div>
+                <div class="password2-c">
+                    <label for="password2">Confirm Password</label>
+                    <input required minlength="8" maxlength="20"
+                     type="password" name="password2" id="password2">
+                </div>
+                <div class="remarques">
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <button>Create Account</button>
+            </fieldset>
+        </form>
         <div class="form-b">
-            <p></p>
+            <p>Already have an account ? <a href="#">Log in</a></p>
         </div>
     </div>
 </body>
