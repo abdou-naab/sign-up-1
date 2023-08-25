@@ -49,11 +49,13 @@
                 <div class="password1-c">
                     <label for="password1">Password</label>
                     <input required minlength="8" maxlength="20"
+                    pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/"
                     type="password" name="password1" id="password1">
                 </div>
                 <div class="password2-c">
                     <label for="password2">Confirm Password</label>
                     <input required minlength="8" maxlength="20"
+                    pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/"
                      type="password" name="password2" id="password2" readonly>
                 </div>
                 <div class="remarques" aria-live="polite" aria-atomic="true">

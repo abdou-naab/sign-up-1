@@ -32,38 +32,135 @@ let shortLenElms = [firstName, lastName, phone, pass1]
 let requiredElms = [firstName, lastName, email, pass1, pass2]
 let allELms = [firstName, lastName, email, phone, pass1, pass2]
 
+function length3Vcheck(e){
+    if (e.target.validity.tooShort){
+        minLen.style.color='red'
+    } else if(e.target.value.length>=3){
+        minLen.style.color='green'
+    } else {
+        minLen.style.color=''
+    }
+}
+function requiredVcheck(e){
+    if (e.target != email && e.target != pass1){
+        if(e.target.validity.tooShort || minLen.style.color=='red' || e.target.value.length==0){
+            requiredField.style.color = 'red'
+        } else if (e.target.value.length>=3){
+            requiredField.style.color = 'green' 
+        } else {
+            requiredField.style.color=''
+        }
+    }  
+}
+function emailVcheck(e){
+    if (validEmail.style.color == 'red' || e.target.value.length==0){
+        requiredField.style.color='red'
+    }
+    if (e.target.value.match(emailPattern)){
+        validEmail.style.color = 'green' 
+        requiredField.style.color='green'
+    } else {
+        validEmail.style.color = 'red' 
+        requiredField.style.color='red'
+    }
+}
+function pass1Vcheck(e){
+    if (validPassCase.style.color == 'red' ||
+        validPassDigit.style.color == 'red' ||
+        validPassPunctuation.style.color == 'red' ||
+        validPassLen.style.color == 'red' ||
+        e.target.value.length==0){
+        requiredField.style.color='red'
+        
+    }
+    if (e.target.value.match(passPattern)){
+        let checks = [validPassCase, validPassDigit, validPassPunctuation, validPassLen]
+        requiredField.style.color='green'
+        for (c of checks) {c.style.color='green'}
+    }
+    if(e.target.value.match(/[A-Z]/)){
+        validPassCase.style.color='green'
+    } else {validPassCase.style.color='red'}
+
+    if(e.target.value.match(/\d/)){
+        validPassDigit.style.color='green'
+    } else {validPassDigit.style.color='red'}
+
+    if(e.target.value.match(/[^A-Za-z0-9]/)){
+        validPassPunctuation.style.color='green'
+    } else {validPassPunctuation.style.color='red'}
+
+    if(!e.target.validity.tooShort && e.target.value.length!=0){
+        validPassLen.style.color='green'
+    } else {validPassLen.style.color='red'}
+}
+function pass2Vcheck(){
+
+    if (!pass1.validity.valid){
+        beforePassword2.style.color='red'
+        afterPassword2.style.color='red'
+        requiredField.style.color='red'
+        pass2.setAttribute('readonly','')
+    } 
+    if (pass1.validity.valid){ 
+        beforePassword2.style.color='green'
+        pass2.removeAttribute('readonly')
+        if (pass1.textContent == pass2.textContent){
+            afterPassword2.style.color='green'
+            requiredField.style.color='green'
+        } else {
+            afterPassword2.style.color='red'
+            requiredField.style.color='red'
+        }
+    }
+    if (afterPassword2.style.color=='green' && beforePassword2.style.color=='green'){
+        requiredField.style.color='green'
+    }
+}
+
 for (let elm of allELms){ 
     for (eventListener of ['focus', 'mouseenter']){
         elm.addEventListener(eventListener, (e)=>{
             if(requiredElms.includes(elm)) {
                 remarques.append(requiredField);
+                requiredVcheck(e)
             } 
             if(shortLenElms.includes(elm) && elm!=pass1){
-                remarques.append(minLen);
-                if (elm.textContent.length >= 3){minLen.style.color = 'green'} 
+                remarques.append(minLen);  
+                length3Vcheck(e)
             }
             if(elm == email) {
                 remarques.append(validEmail);
+                emailVcheck(e)
             }
             if (elm == pass1){
                 remarques.append(validPassCase, validPassDigit, validPassPunctuation, validPassLen) ;
+                pass1Vcheck(e)
             } 
-            (pass1.textContent=='' && elm==pass2) ? remarques.append(beforePassword2) : false;
-            if (pass1.textContent!='' && pass1.textContent != pass2.textContent) {
-                remarques.append(afterPassword2);
-            };
+            if (elm == pass2){
+                remarques.append(beforePassword2)
+                remarques.append(afterPassword2)
+                pass2Vcheck()
+            }
         })
     } 
 
 
     for (eventListener of ['blur', 'mouseleave']){
-        
         elm.addEventListener(eventListener, (e)=>{
+            minLen.style.color=''
             while (remarques.firstChild){
                 remarques.removeChild(remarques.firstChild);
             }
         })
     }
+    elm.addEventListener('input', (e)=>{
+        length3Vcheck(e)
+        requiredVcheck(e)
+        emailVcheck(e)
+        pass1Vcheck(e)
+        pass2Vcheck()
+    })
     
 
 }
