@@ -134,7 +134,7 @@ input{
     border: 2px solid green;
     box-shadow: none;
 } */
-/* .form-m fieldset:first-child input:focus:invalid{
+/* .form-m fieldset:first-child input:invalid{
     border: 2px solid red;
     box-shadow: none;
 }  */
