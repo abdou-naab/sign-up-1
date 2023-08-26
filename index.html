@@ -1,74 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <script type="text/javascript" src="logic.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="image-sidebar">
-        <div class="logo-container">
-            <img src="imgs/odin-lined.png" alt="the odin project logo">
-            <span>Otree</span>
-        </div>
+      <div class="logo-container">
+        <img src="imgs/odin-lined.png" alt="the odin project logo" />
+        <span>Otree</span>
+      </div>
     </div>
     <div class="form-container">
-        <div class="form-t">
-            <p>This is not a real online service, but you know 
-                that you need someting like this in your life
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-             quia recusandae voluptate velit quia recusandae voluptate velit placeat adipisci optioQuod!</p>
-             <p>You know you want to</p>
-        </div>
-        <form class="form-m" novalidate>
-            <fieldset>
-                <legend>Let's do this !</legend>
-                
-                <div class="f-name-c">
-                    <label for="f-name">First Name</label>
-                    <input required minlength="3" maxlength="20"
-                    type="text" name="f-name" id="f-name">        
-                </div>
-                <div class="l-name-c">
-                    <label for="l-name">Last Name</label>
-                    <input required minlength="3" maxlength="20"
-                    type="text" name="l-name" id="l-name">
-                </div>
-                <div class="email-c">
-                    <label for="email">Email</label>
-                    <input placeholder="exp.example@gmail.vim" required  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
-                    type="email" name="email" id="email">    
-                </div>
-                <div class="ph-number-c">
-                    <label for="ph-number">Phone Number</label>
-                    <input minlength="3" maxlength="20"
-                    type="tel" name="ph-number" id="ph-number" >
-                </div>
-                <div class="password1-c">
-                    <label for="password1">Password</label>
-                    <input required minlength="8" maxlength="20"
-                    pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/"
-                    type="password" name="password1" id="password1">
-                </div>
-                <div class="password2-c">
-                    <label for="password2">Confirm Password</label>
-                    <input required minlength="8" maxlength="20"
-                    pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/"
-                     type="password" name="password2" id="password2" readonly>
-                </div>
-                <div class="remarques" aria-live="polite" aria-atomic="true">
-                    
-                </div>
-            </fieldset>
-            <fieldset>
-                <button>Create Account</button>
-            </fieldset>
-        </form>
-        <div class="form-b">
-            <p>Already have an account ? <a href="#">Log in</a></p>
-        </div>
+      <div class="form-t">
+        <p>
+          This is not a real online service, but you know that you need someting
+          like this in your life Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. quia recusandae voluptate velit quia recusandae
+          voluptate velit placeat adipisci optioQuod!
+        </p>
+        <p>You know you want to</p>
+      </div>
+      <form class="form-m" novalidate method="post">
+        <fieldset>
+          <legend>Let's do this !</legend>
+
+          <div class="f-name-c">
+            <label for="f-name">First Name</label>
+            <input
+              required
+              minlength="3"
+              maxlength="20"
+              type="text"
+              name="f-name"
+              id="f-name"
+            />
+          </div>
+          <div class="l-name-c">
+            <label for="l-name">Last Name</label>
+            <input
+              required
+              minlength="3"
+              maxlength="20"
+              type="text"
+              name="l-name"
+              id="l-name"
+            />
+          </div>
+          <div class="email-c">
+            <label for="email">Email</label>
+            <input
+              placeholder="exp.example@gmail.vim"
+              required
+              type="email"
+              name="email"
+              id="email"
+              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            />
+          </div>
+          <div class="ph-number-c">
+            <label for="ph-number">Phone Number</label>
+            <input
+              minlength="3"
+              maxlength="20"
+              type="tel"
+              name="ph-number"
+              id="ph-number"
+            />
+          </div>
+          <div class="password1-c">
+            <label for="password1">Password</label>
+            <input
+              required
+              minlength="8"
+              maxlength="20"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
+              type="password"
+              name="password1"
+              id="password1"
+            />
+          </div>
+          <div class="password2-c">
+            <label for="password2">Confirm Password</label>
+            <input
+              required
+              minlength="8"
+              maxlength="20"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
+              type="password"
+              name="password2"
+              id="password2"
+              readonly
+            />
+          </div>
+          <div class="remarques" aria-live="polite" aria-atomic="true"></div>
+        </fieldset>
+        <fieldset>
+          <button>Create Account</button>
+        </fieldset>
+      </form>
+      <div class="form-b">
+        <p>Already have an account ? <a href="#">Log in</a></p>
+      </div>
     </div>
-</body>
+  </body>
 </html>
